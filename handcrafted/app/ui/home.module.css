@@ -1,0 +1,13 @@
+.title {
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+.text {
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+.banner {
+    background-color: #916951;
+}
