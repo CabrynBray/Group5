@@ -2,6 +2,7 @@
 import React from 'react';
 import styles from '../ui/home.module.css'
 import Link from 'next/link';
+<<<<<<< HEAD
 import AcmeLogo from './acme-logo';
 export default function Footer() {
     return (
@@ -9,6 +10,12 @@ export default function Footer() {
 
             <div className="container mx-auto px-4">
                 <AcmeLogo />
+=======
+export default function Footer() {
+    return (
+        <footer className="bg-[#906951] text-white p-4 m-6 rounded-lg">
+            <div className="container mx-auto px-4">
+>>>>>>> 8ad0563 (feat: added the footer component to the layout)
                 <p className="text-center">&copy; {new Date().getFullYear()} HANDCRAFTEDHAVEN. All rights reserved.</p>
                 <nav>
                     <ul className="flex justify-center space-x-4 mt-4">
