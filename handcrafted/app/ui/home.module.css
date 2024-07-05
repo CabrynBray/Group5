@@ -11,3 +11,8 @@
 .banner {
     background-color: #906951;
 }
+
+.banner:hover {
+    background-color: #a9bbcd;
+    color: black;
+}
