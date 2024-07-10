@@ -1,6 +1,8 @@
 import '@/app/ui/global.css';
 import Footer from './ui/footer';
+
 export default function RootLayout({
+  
   children,
 
 }: {
@@ -8,7 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      
       <body>{children}
+        
 
         <Footer />
       </body>
