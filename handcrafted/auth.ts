@@ -15,6 +15,7 @@ async function getUser(email: string): Promise<User | undefined> {
     throw new Error('Failed to fetch user.');
   }
 }
+<<<<<<< HEAD
 
 export default NextAuth({
   ...authConfig,
@@ -25,6 +26,15 @@ export default NextAuth({
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
+=======
+ 
+export const { auth, signIn, signOut } = NextAuth(
+  {
+  ...authConfig,
+  providers: [
+    // Use credentials to for authentification
+    Credentials({
+>>>>>>> 2cdc93ab39b3ab52a050d1f77a0d793d3cad15d7
       async authorize(credentials) {
         const parsedCredentials = z.object({
           email: z.string().email(),
