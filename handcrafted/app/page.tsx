@@ -19,6 +19,12 @@ export default function Page() {
             The go-to destination for those seeking unique, handcrafted treasures.
           </p>
           <Link
+              href="/register"
+              className={`${styles.banner} flex items-center gap-5 rounded-lg bg-green-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-400 md:text-base`}
+            >
+              <span>Register</span> <ArrowRightIcon className="w-5 md:w-6" />
+            </Link>
+          <Link
             href="/login"
             className={`${styles.banner} flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base`}
           >
