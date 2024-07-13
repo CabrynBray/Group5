@@ -1,13 +1,6 @@
 'use server';
-<<<<<<< HEAD
- 
-import { signIn } from '@//auth';
-import { createUser } from '@//auth';
-import { AuthError } from 'next-auth';
-=======
 const { db, sql } = require('@vercel/postgres');
 import { z } from 'zod';
->>>>>>> 2cdc93ab39b3ab52a050d1f77a0d793d3cad15d7
 
 const multer = require('multer');
 
@@ -33,37 +26,6 @@ export async function authenticate(
           return 'Something went wrong.';
       }
     }
-<<<<<<< HEAD
-  }
-
-  export async function register(
-    prevState: string | undefined,
-    formData: FormData,
-  ) {
-    const firstName = formData.get('fname') as string;
-    const lastName = formData.get('lname') as string;
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    const address = formData.get('address') as string;
-  
-    try {
-      await createUser(firstName, lastName, email, password, address);
-      return { success: true };
-    } catch (error) {
-      if (error instanceof AuthError) {
-        switch (error.type) {
-          case 'UserAlreadyExists':
-            return 'User already exists.';
-          case 'InvalidEmail':
-            return 'Invalid email address.';
-          default:
-            return 'Something went wrong.';
-        }
-      }
-      throw error;
-    }
-  }
-=======
     throw error;
   }
 }
@@ -147,4 +109,3 @@ export async function userRegistration(formData: FormData) {
 //   //   price: formData.get('price'),
 //   // });
 // }
->>>>>>> 2cdc93ab39b3ab52a050d1f77a0d793d3cad15d7
