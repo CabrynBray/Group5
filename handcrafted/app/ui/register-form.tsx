@@ -4,7 +4,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { AtSymbolIcon, KeyIcon, ExclamationCircleIcon, UserIcon, HomeIcon } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
-import { register } from '@/app/lib/actions';
+import { userRegistration } from '@/app/lib/actions';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -17,12 +17,12 @@ export default function RegisterForm() {
     event.preventDefault();
     setIsPending(true);
     const formData = new FormData(event.target as HTMLFormElement);
-    const response = await register(undefined, formData);
+    const response = await userRegistration(formData);
     if (typeof response === 'string') {
       setErrorMessage(response);
     } else {
       setErrorMessage(null);
-      router.push('/'); // Redirect to the home page after successful registration
+      router.push('/login'); // Redirect to the login page after successful registration
     }
     setIsPending(false);
   };

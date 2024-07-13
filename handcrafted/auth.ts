@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
@@ -15,18 +15,6 @@ async function getUser(email: string): Promise<User | undefined> {
     throw new Error('Failed to fetch user.');
   }
 }
-<<<<<<< HEAD
-
-export default NextAuth({
-  ...authConfig,
-  providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        email: { label: 'Email', type: 'text' },
-        password: { label: 'Password', type: 'password' },
-      },
-=======
  
 export const { auth, signIn, signOut } = NextAuth(
   {
@@ -34,7 +22,6 @@ export const { auth, signIn, signOut } = NextAuth(
   providers: [
     // Use credentials to for authentification
     Credentials({
->>>>>>> 2cdc93ab39b3ab52a050d1f77a0d793d3cad15d7
       async authorize(credentials) {
         const parsedCredentials = z.object({
           email: z.string().email(),
