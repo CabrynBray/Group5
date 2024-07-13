@@ -50,9 +50,9 @@ export type State = {
   message?: string | null;
 };
 
- export async function userRegistration(formData: FormData) {
+export async function userRegistration(formData: FormData) {
   // Validate the UserformData with the actual form data passed into this function
-  const { fname, lname, email, password, address } =  userFormData.parse( {
+  const { fname, lname, email, password, address } = userFormData.parse({
     fname: formData.get('fname'),
     lname: formData.get('lname'),
     email: formData.get('email'),
@@ -60,20 +60,21 @@ export type State = {
     address: formData.get('address'),
   });
 
-
-// Hash the passoword before inserting it into the database.
+  // Hash the passoword before inserting it into the database.
   const hassPassword = await bcrypt.hash(password, 10);
 
   try {
-    
- const registerUser =   await sql`insert into Users(fname, lname, email, password, address) 
+    const registerUser =
+      await sql`insert into Users(fname, lname, email, password, address) 
           values(${fname}, ${lname}, ${email}, ${hassPassword}, ${address})`;
 
-   return registerUser
+    return registerUser;
   } catch (error) {
-      console.log("An error occured", error)
+    console.log('An error occured', error);
   }
 
   // revalidatePath('');
   redirect('/login');
 }
+
+// Not now
