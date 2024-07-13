@@ -7,6 +7,7 @@ import Navbar from './ui/navbar';
 import Image from 'next/image';
 import Slider from './ui/carousel/carousel';
 
+import { Button } from './ui/button';
 export default function Page() {
 
   return (
@@ -26,7 +27,17 @@ export default function Page() {
           <p className={`${styles.text} md:text-2xl md:leading-normal`}>
             The go-to destination for those seeking unique, handcrafted treasures.
           </p>
+<<<<<<< HEAD
+          <Link
+              href="/register"
+              className={`${styles.banner} flex items-center gap-5 rounded-lg bg-green-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-400 md:text-base`}
+            >
+              <span>Register</span> <ArrowRightIcon className="w-5 md:w-6" />
+            </Link>
+          <Link
+=======
           {/* <Link
+>>>>>>> 2cdc93ab39b3ab52a050d1f77a0d793d3cad15d7
             href="/login"
             className={`${styles.banner} flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base`}
           >
