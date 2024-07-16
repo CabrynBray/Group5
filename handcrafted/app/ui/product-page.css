@@ -1,3 +1,120 @@
+/*************** Product Details page ****************/
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.product-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #5bc0de;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+/*************** Product Reviews ****************/
+.reviews {
+  margin-top: 40px;
+  max-width: 800px;
+  margin: 40px auto 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.reviews h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.review-submit-button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.review-submit-button:hover {
+  background-color: #4cae4c;
+}
+
+.review-list {
+  margin-top: 20px;
+}
+
+.review {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+
+/*************** Product list page ****************/
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 32px;
+  background-color:  #c4b4ab;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.filter select {
+  padding: 8px;
+  border: 2px solid #906951;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #1a202c;
+}
+
+
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
