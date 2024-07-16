@@ -9,6 +9,15 @@ export type User = {
   password: string;
 };
 
+export type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  seller: string;
+}
+
 export type Customer = {
   id: string;
   name: string;
