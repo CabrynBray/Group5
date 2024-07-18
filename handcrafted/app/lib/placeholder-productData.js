@@ -1,4 +1,4 @@
-const Products = [
+export const Products = [
     {
       id: 1,
       title: 'Handcrafted Vase',

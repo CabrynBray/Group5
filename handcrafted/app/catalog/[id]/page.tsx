@@ -1,8 +1,12 @@
+"use client"
+
 import Link from "next/link";
 import Image from 'next/image';
 import Navbar from "../../ui/navbar";
 import Products from "../../lib/placeholder-productData.js";
+import { reviews, addReview } from "../../lib/placeholder-reviewData.js";
 import '@/app/ui/product-page.css';
+import { useState, useEffect } from 'react';
 
 
 export default function Page({ params }: { params: { id: string } }) {
@@ -10,6 +14,25 @@ export default function Page({ params }: { params: { id: string } }) {
     const productId = parseInt(params.id);
     const product = Products.find(product => product.id === productId);
 
+    const [reviewerName, setReviewerName] = useState(""); // State for reviewer's name
+    const [reviewText, setReviewText] = useState("");
+    const [rating, setRating] = useState(0);
+
+    const handleReviewSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        const newReview = {
+            product_id: productId,
+            reviewer_name: reviewerName, // Use reviewerName state
+            review_text: reviewText,
+            rating: rating,
+            review_date: new Date().toISOString(),
+        };
+        addReview(newReview);
+        setReviewerName(""); // Clear reviewerName state after submission
+        setReviewText("");
+        setRating(0);
+    };
+    
     if (!product) {
         return <div>Product not found!</div>;
     }
@@ -39,19 +62,45 @@ export default function Page({ params }: { params: { id: string } }) {
 
             <div className="reviews">
                 <h2>Product Reviews</h2>
-                {/* Review Form */}
-                <form>
-                    <textarea rows={4} placeholder="Write your review..." />
-                    <button type="submit"className="product-link">Submit Review</button>
+                <form onSubmit={handleReviewSubmit} className="review-form">
+                    <input
+                        type="text"
+                        value={reviewerName}
+                        onChange={(e) => setReviewerName(e.target.value)}
+                        placeholder="Your Name"
+                        className="reviewer-name-input"
+                        required
+                    />
+                    <textarea
+                        value={reviewText}
+                        onChange={(e) => setReviewText(e.target.value)}
+                        rows={4}
+                        placeholder="Write your review..."
+                        className="review-textarea"
+                        required
+                    />
+                    <input
+                        type="number"
+                        value={rating}
+                        onChange={(e) => setRating(parseInt(e.target.value))}
+                        min={0}
+                        max={5}
+                        step={0.1}
+                        placeholder="Rating (0-5)"
+                        className="review-rating-input"
+                        required
+                    />
+                    <button type="submit" className="review-submit-button">Submit Review</button>
                 </form>
 
-                {/* Reviews List */}
                 <div className="review-list">
-                    {/* Replace with actual review data if available */}
-                    <div className="review">
-                        <p><strong>Reviews</strong></p>
-                    </div>
-                    
+                    {reviews.filter(review => review.product_id === productId).map((review, index) => (
+                        <div key={index} className="review">
+                            <p><strong>{review.reviewer_name}</strong> - {review.review_date}</p>
+                            <p>Rating: {review.rating}</p>
+                            <p>{review.review_text}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </main>
