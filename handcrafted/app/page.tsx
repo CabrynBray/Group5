@@ -16,18 +16,25 @@ export default function Page() {
 
       <div className="nav">
         <Navbar /> 
-
-      <div className={`${styles.banner} flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52`}>
-        {/* <AcmeLogo /> */}
-
       </div>
+
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row bg-black rounded-lg">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
           <p className={`${styles.title} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             Handcrafted Haven
           </p>
           <p className={`${styles.text} md:text-2xl md:leading-normal`}>
-            The go-to destination for those seeking unique, handcrafted treasures.
+            The go-to destination for those seeking unique, handcrafted treasures.  You can shop and look at all our inventory
+            in our catalog.  There you will also find links to get to know the artisans who have created these items!  Your purchase
+            here makes a tremendous impact.  From all of the sellers here, thank you and happy shopping!
+          </p>
+          <p className={`${styles.title} text-xl text-gray-800 md:text-2xl md:leading-normal`}>
+            Handcrafted Haven SELLERS
+          </p>
+          <p className={`${styles.text} md:text-2xl md:leading-normal`}>
+            Are you a craftsperson?  Do you have products to sell but wish you had a bigger platform?
+            Look no further!  Click on the REGISTER link in the top right corner of our page to create a profile.
+            Already have a profile?  Click on the LOGIN link in the top right corner to access your profile.
           </p>
           {/* <Link
             href="/login"
