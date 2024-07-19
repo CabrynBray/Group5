@@ -50,7 +50,7 @@ export default function Seller1(){
                         order now
                     </button> */}
                     <Link
-                        href="/products"
+                        href="/catalog"
                         className="bg-[#ecae7e] text-white uppercase px-4 py-2 rounded-md content-evenly"
                     >
                         <span>Order Now</span>

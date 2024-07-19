@@ -25,17 +25,7 @@ export default function Navbar() {
                 {/* <div className='nav-end lg:inline-flex gap-8 items-center'> */}
                 <div className="nav-end lg:inline-flex gap-8 items-center">
                     <ul className='lg:inline-flex items-center gap-8 uppercase text-m font-semibold'>
-                    <li><div className='relative'>
-                        <img 
-                        src="/shopping_cart_checkout.png" 
-                        height={25}
-                        width={25}
-                        alt="cart" />
-                        <span className='w-4 h-4 bg-yellow-600 text-white rounded-full absolute left-0 -bottom-2 text-xs flex items-center justify-center'>
-                            0
-                        </span>
-                    </div></li>
-                    <li><Link 
+                    <li><Link  
                         href={"/login"}>LOGIN |
                         {/* className='{`${styles.banner} flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base`}' */}
                     </Link></li>
