@@ -11,10 +11,11 @@ import { Button } from './button';
 import { authenticate } from '@/app/lib/actions';
 import { useState } from 'react';
 
+import { useRouter } from 'next/navigation';
 export default function LoginForm() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
-
+  const router = useRouter()
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setIsPending(true);
@@ -24,6 +25,7 @@ export default function LoginForm() {
       setErrorMessage(response);
     } else {
       setErrorMessage(null);
+      router.push('/dashboard');
     }
     setIsPending(false);
   };
