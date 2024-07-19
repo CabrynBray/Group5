@@ -16,12 +16,16 @@ export async function authenticate(
   formData: FormData,
 ) {
   try {
-    await signIn('credentials', formData);
+    const sing = await signIn('credentials', formData);
+    console.log(sing);
   } catch (error) {
     if (error instanceof AuthError) {
+      console.log('There is an error', { error });
       switch (error.type) {
         case 'CredentialsSignin':
           return 'Invalid credentials.';
+        case 'CallbackRouteError':
+          return 'Email or Password Incorrects';
         default:
           return 'Something went wrong.';
       }
@@ -83,10 +87,8 @@ export async function userRegistration(formData: FormData) {
 
   try {
     const registerUser =
-      await sql`insert into Users(fname, lname, email, password, address) 
-          values(${fname}, ${lname}, ${email}, ${hassPassword}, ${address})`;
-
-    return registerUser;
+      await sql`insert into users(fname, lname, email, password, address)
+        values(${fname}, ${lname}, ${email}, ${hassPassword}, ${address})`;
   } catch (error) {
     console.log('An error occured', error);
   }

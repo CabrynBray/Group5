@@ -13,12 +13,19 @@
     "@types/node": "20.5.7",
     "@vercel/postgres": "^0.9.0",
     "autoprefixer": "10.4.15",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
+<<<<<<< HEAD
     "framer-motion": "^11.3.0",
+=======
+    "formidable": "^3.5.1",
+    "framer-motion": "^11.2.14",
+>>>>>>> 313a81ce7e6f9dbe1df79f96f93fa13092445e48
     "multer": "1.4.5-lts.1",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.19",
+    "next-connect": "^1.0.0",
     "postcss": "8.4.31",
     "react": "19.0.0-rc-6230622a1a-20240610",
     "react-dom": "19.0.0-rc-6230622a1a-20240610",
@@ -28,6 +35,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.1",
+    "@types/multer": "^1.4.11",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.14",
     "@vercel/style-guide": "^5.0.1",
