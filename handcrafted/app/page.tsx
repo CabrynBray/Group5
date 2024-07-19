@@ -59,7 +59,9 @@ export default function Page() {
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <Slider />
       </div>
-
+        
+          
+       
 
     </main>
   )

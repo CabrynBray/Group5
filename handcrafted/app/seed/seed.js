@@ -1,17 +1,15 @@
+import { table } from 'console';
+
 const { db } = require('@vercel/postgres');
-// const {
-//   invoices,
-//   customers,
-//   revenue,
-//   users,
-// } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
 async function createUsers(client) {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    console.log('Am here');
+    await client.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
+
     // Create the "users" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await client.query(`
       CREATE TABLE IF NOT EXISTS users (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         fname VARCHAR(255) NOT NULL,
@@ -20,10 +18,10 @@ async function createUsers(client) {
         password TEXT NOT NULL,
         address TEXT NOT NULL
       );
-    `;
+    `);
 
     console.log(`Created "users" table`);
-
+    return { createUsers };
     // Insert data into the "users" table
     // const insertedUsers = await Promise.all(
     //   users.map(async (user) => {
@@ -44,16 +42,19 @@ async function createUsers(client) {
 }
 async function userStories(client) {
   try {
-    await client.sql(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
+    await client.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
     const createTable = await client.query(`
         CREATE TABLE IF NOT EXISTS stories (
           id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
           user_id UUID DEFAULT uuid_generate_v4() NOT NULL,
-          story text
-          FOREIGN KEY (user_id) REFERENCES users(id)
+          story text,
+         FOREIGN KEY(user_id) REFERENCES users(id)
         );
       `);
-  } catch (error) {}
+    console.log('User Story table created');
+  } catch (error) {
+    console.log('Error seeding Stories', error);
+  }
 }
 
 async function seedProduct(client) {
@@ -89,15 +90,15 @@ export async function seedReview(client) {
 
     // Create the "products" table if it doesn't exist
     const createTable = await client.query(`
-     CREATE TABLE ratings (
+     CREATE TABLE IF NOT EXISTS  ratings (
      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    user_id  UUID DEFAULT uuid_generate_v4() NOT NULL,
-    product_id UUID DEFAULT uuid_generate_v4() NOT NULL,
-    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
-    review TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (product_id) REFERENCES products(id)
+     user_id  UUID DEFAULT uuid_generate_v4() NOT NULL,
+     product_id UUID DEFAULT uuid_generate_v4() NOT NULL,
+     rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+     review TEXT,
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     FOREIGN KEY (user_id) REFERENCES users(id),
+     FOREIGN KEY (product_id) REFERENCES products(id)
   );
     `);
     console.log('Review table created or already exists.');
@@ -111,11 +112,11 @@ export async function seedReview(client) {
 
 export async function main() {
   const client = await db.connect();
-
-  await seedUsers(client);
+  await createUsers(client);
+  await userStories(client);
   await seedProduct(client);
   await seedReview(client);
-  await userStories(client);
+
   await client.end();
 }
 
