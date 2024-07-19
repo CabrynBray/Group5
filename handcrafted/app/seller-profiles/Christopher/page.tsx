@@ -18,7 +18,7 @@ export default function Seller1(){
                     </p>
                     <p className={`${styles.text} md:text-2xl md:leading-normal`}>
                     Hello everyone! <br />
-                    My name is Christopher and I'm a master vase maker and leather maker.  I was lucky to have learned these skills from 
+                    My name is Christopher and Im a master vase maker and leather maker.  I was lucky to have learned these skills from 
                     my parents.  My mom made vases and my dad created all kinds of amazing things out of leather.  I continue to use my talents
                     to take care of my family.  Each purchase that you make creates a huge impact on my family and I.  I honor and respect your
                     purchase and make sure that you will get amazing quality items.  Thank you so much for supporting me!
