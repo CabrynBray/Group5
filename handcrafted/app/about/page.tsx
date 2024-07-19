@@ -29,16 +29,16 @@ export default function About(){
                     to provide for their families.
                 </p>
                 <p>
-                    We wanted to help, but felt like simply buying these items ourselves wasn't enough.
+                    We wanted to help, but felt like simply buying these items ourselves wasnt enough.
                     We got back to our hotel that night and brainstormed ideas of how we could truly make
-                    a difference in the lives of these amazing people.  That's when Handcrafted Haven was
+                    a difference in the lives of these amazing people.  Thats when Handcrafted Haven was
                     truly born.
                 </p>
                 <p>
                     We wanted to give these artisans a wider, more global reach to be able to really
                     profit off of their talents and skill.  We wanted to provide them, and all like them around
                     the globe with a platform to share their products while bringing relief to their day-to-day efforts.
-                    So take some time, browse, buy, and know that you're making a huge difference with your purchase!
+                    So take some time, browse, buy, and know that youre making a huge difference with your purchase!
                 </p>
                 </div>
             </div>

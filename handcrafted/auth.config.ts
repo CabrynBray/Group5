@@ -1,7 +1,7 @@
-import type { NextAuthOptions } from 'next-auth';
+import type { NextAuthConfig } from 'next-auth';
 import { NextResponse } from 'next/server';
 
-export const authConfig: NextAuthOptions = {
+export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/login',
   },
