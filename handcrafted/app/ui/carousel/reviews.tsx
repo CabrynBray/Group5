@@ -59,7 +59,7 @@ const Reviews = ({ activeImage, clickNext, clickPrev }: Props) => {
             order now
           </button> */}
           <Link
-            href="/products"
+            href="/catalog"
             className="bg-[#ecae7e] text-white uppercase px-4 py-2 rounded-md my-10"
           >
             <span>Order Now</span>
@@ -70,7 +70,7 @@ const Reviews = ({ activeImage, clickNext, clickPrev }: Props) => {
               className="absolute bottom-2 right-10 cursor-pointer"
               onClick={clickPrev}
             >
-              <Image src="/carousel/left.svg" 
+              <Image src="/carousel/arrow_back.png" 
               alt="left-button" 
               height="24"
               width="24"
@@ -81,7 +81,7 @@ const Reviews = ({ activeImage, clickNext, clickPrev }: Props) => {
               className="absolute bottom-2 right-2 cursor-pointer"
               onClick={clickNext}
             >
-              <Image src="/carousel/right.svg" 
+              <Image src="/carousel/arrow_forward.png" 
               alt="right-button"
               height="24"
               width="24"
