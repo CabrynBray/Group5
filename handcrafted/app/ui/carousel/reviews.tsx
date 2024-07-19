@@ -59,7 +59,7 @@ const Reviews = ({ activeImage, clickNext, clickPrev }: Props) => {
             order now
           </button> */}
           <Link
-            href="/products"
+            href="/catalog"
             className="bg-[#ecae7e] text-white uppercase px-4 py-2 rounded-md my-10"
           >
             <span>Order Now</span>
