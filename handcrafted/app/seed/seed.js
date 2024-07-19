@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 async function createUsers(client) {
   try {
-    console.log('Am here');
+   
     await client.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
 
     // Create the "users" table if it doesn't exist

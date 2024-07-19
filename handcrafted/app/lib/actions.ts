@@ -86,11 +86,9 @@ export async function userRegistration(formData: FormData) {
   const hassPassword = await bcrypt.hash(password, 10);
 
   try {
-    const registerUser = await sql`select * from users`;
-    console.log(registerUser.rows);
-    return registerUser;
-    // await sql`insert into users(fname, lname, email, password, address)
-    //     values(${fname}, ${lname}, ${email}, ${hassPassword}, ${address})`;
+    const registerUser =
+      await sql`insert into users(fname, lname, email, password, address)
+        values(${fname}, ${lname}, ${email}, ${hassPassword}, ${address})`;
   } catch (error) {
     console.log('An error occured', error);
   }
