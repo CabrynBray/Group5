@@ -96,7 +96,7 @@ export default function CatalogPage() {
                         <p className="product-description">{product.description}</p>
                         <p className="product-price">$ {product.price}</p>
                         <Link href={`/catalog/${product.id}`} className="product-link">View Details</Link>
-                        <Link href={`/catalog/${product.id}/login?redirectTo=/catalog/${product.id}/artisan`} className="product-link">Seller Profile</Link>
+                        <Link href={`/catalog/${product.id}/artisan`} className="product-link">Seller Profile</Link>
                     </div>
                 ))}
             </div>
